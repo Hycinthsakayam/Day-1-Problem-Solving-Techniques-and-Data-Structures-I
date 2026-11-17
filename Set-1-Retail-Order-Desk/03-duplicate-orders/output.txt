@@ -1,0 +1,1 @@
+Run `python task.py` to generate the output. Hash key is customer + amount + minute. Average O(n) time and O(n) space.
