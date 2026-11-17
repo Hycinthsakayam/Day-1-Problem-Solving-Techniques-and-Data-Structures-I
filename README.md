@@ -30,15 +30,6 @@ This set includes patient search, sorting appointments by urgency, checking for 
 
 [Open Set 3](./Set-3-Hospital-Appointment-Desk/)
 
-## How the folders are organised
-
-Each question has its own folder. Inside, you can find:
-
-- A Python file with a name related to the question, such as `order_search.py` or `patient_search.py`.
-- `output.txt`, which shows a sample run of the program.
-- `flowchart.svg`, which shows the steps followed in the solution.
-
-I have also added a `SET-NOTES.md` file in each set for the complexity and algorithm notes.
 
 ## Running the programs
 
@@ -52,8 +43,3 @@ python order_search.py
 
 The filename will be different for each question. These programs use Python's standard library, so no extra packages are needed.
 
-## A note about the sample data
-
-For Set 1, Question 1, the program reads an `orders.csv` file if one is available in the same folder. If not, it creates 50,000 sample orders so that the search methods can still be tested.
-
-The sample outputs are included to show how the programs run. Execution times may change depending on the system, so it is better to compare algorithms on the same machine and with the same input data.
