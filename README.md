@@ -1,92 +1,59 @@
 # Day 1 – Problem Solving Techniques and Data Structures I
 
-**Mavericks Segue 2026 | Python Track | Assignment date: 14 October 2026**
+This repository contains my solutions for the Day 1 Python assignment. I have kept the programs in separate folders so that it is easy to find the code for each question and run it individually.
 
-This repository contains my Day 1 Python assignment solutions. The work is organised around the three scenarios and the exact task sequence in the trainer's assignment: a retail order desk, a retail banking transaction review, and a hospital appointment desk.
+The assignment has three sets, with five questions in each set.
 
-## Learning objectives
+## What I'm working on
 
-- Understand algorithm basics and compare time and space complexity.
-- Apply linear search and binary search to suitable data.
-- Implement and compare sorting techniques.
-- Use hash-based structures to identify duplicate records.
-- Implement stacks and queues and understand LIFO and FIFO behaviour.
-- Apply greedy, divide-and-conquer and dynamic-programming approaches.
-- Validate solutions with sample inputs and recorded console output.
+- Searching for records using linear search and binary search.
+- Sorting data and comparing different sorting methods.
+- Finding duplicate records using sets and dictionaries.
+- Understanding stacks and queues through simple programs.
+- Trying greedy, divide-and-conquer and dynamic programming approaches.
+- Checking the output and understanding the time and space complexity.
 
 ## Assignment sets
 
-| Set | Scenario | Main concepts |
-|---|---|---|
-| [Set 1 – Retail Order Desk](./Set-1-Retail-Order-Desk/) | Order lookup, dispatch ranking, duplicate orders and refunds | Linear/binary search, bubble/merge sort, hashing, stack, queue, greedy and DP |
-| [Set 2 – Retail Banking Transaction Review](./Set-2-Retail-Banking/) | Transaction lookup, statement ordering and duplicate-posting review | Search comparison counts, stable sorting, hashing, FIFO/LIFO and divide-and-conquer |
-| [Set 3 – Hospital Appointment Desk](./Set-3-Hospital-Appointment-Desk/) | Patient lookup, appointment urgency, double-booking prevention and scheduling | Search benchmarking, selection/quicksort, hash set, queue, stack and scheduling DP |
+### Set 1 – Retail Order Desk
+This set focuses on finding orders, sorting them by amount, identifying duplicate orders, managing edits and dispatch queues, and calculating refund change.
 
-Each set contains five task folders. Folder names describe the question being solved, and each Python source file has a descriptive name rather than using one generic filename.
+[Open Set 1](./Set-1-Retail-Order-Desk/)
 
-## Folder contents
+### Set 2 – Retail Banking Transaction Review
+This set covers searching transaction IDs, sorting bank statements, detecting duplicate transactions, handling review requests and finding the minimum and maximum transaction amounts.
 
-Each task folder includes:
+[Open Set 2](./Set-2-Retail-Banking/)
 
-- A question-specific Python source file (for example, `order_search.py` or `appointment_scheduling_dp.py`).
-- `output.txt` with the command used and the captured sample console output.
-- `flowchart.svg` showing the solution process.
+### Set 3 – Hospital Appointment Desk
+This set includes patient search, sorting appointments by urgency, checking for double bookings, managing walk-in tokens and selecting appointments that fit a doctor's shift.
 
-Each set also has a `SET-NOTES.md` file summarising the algorithm choices and complexity.
+[Open Set 3](./Set-3-Hospital-Appointment-Desk/)
 
-## Running a solution
+## How the folders are organised
 
-1. Open the required task folder.
-2. Open a terminal in that folder.
-3. Run the Python file shown in the folder. For example:
+Each question has its own folder. Inside, you can find:
+
+- A Python file with a name related to the question, such as `order_search.py` or `patient_search.py`.
+- `output.txt`, which shows a sample run of the program.
+- `flowchart.svg`, which shows the steps followed in the solution.
+
+I have also added a `SET-NOTES.md` file in each set for the complexity and algorithm notes.
+
+## Running the programs
+
+Open the folder for the question you want to try, then open a terminal in that folder and run its Python file.
+
+For example:
 
 ```bash
 python order_search.py
 ```
 
-Use the actual filename in that task folder. The programs use Python's standard library; no third-party package is required.
+The filename will be different for each question. These programs use Python's standard library, so no extra packages are needed.
 
-### Input and benchmark notes
+## A note about the sample data
 
-- **Set 1, Task 1:** If an `orders.csv` file is placed beside the Python script, the program reads it. Otherwise, it creates 50,000 deterministic demonstration records. Use the trainer-provided CSV for the assignment's actual data benchmark.
-- Runtime measurements depend on the computer and Python environment. Compare the algorithms using the same input data and machine.
-- Sample data printed in the output files is for demonstrating the program logic; replace it with trainer-provided data wherever the assignment specifies a supplied dataset.
+For Set 1, Question 1, the program reads an `orders.csv` file if one is available in the same folder. If not, it creates 50,000 sample orders so that the search methods can still be tested.
 
-## Repository map
-
-```text
-.
-├── Set-1-Retail-Order-Desk/
-│   ├── 01-order-search/
-│   ├── 02-order-sorting/
-│   ├── 03-duplicate-orders/
-│   ├── 04-stack-queue/
-│   ├── 05-refund-change/
-│   └── SET-NOTES.md
-├── Set-2-Retail-Banking/
-│   ├── 01-transaction-search/
-│   ├── 02-statement-sorting/
-│   ├── 03-duplicate-postings/
-│   ├── 04-review-queue-stack/
-│   ├── 05-divide-conquer-min-max/
-│   └── SET-NOTES.md
-└── Set-3-Hospital-Appointment-Desk/
-    ├── 01-patient-search/
-    ├── 02-urgency-sorting/
-    ├── 03-double-bookings/
-    ├── 04-walkin-queue-stack/
-    ├── 05-appointment-dp/
-    └── SET-NOTES.md
-```
-
-## Day 1 completion checklist
-
-- [x] Three assignment sets organised separately.
-- [x] Fifteen task folders created.
-- [x] Question-specific Python filenames.
-- [x] Sample console output files.
-- [x] Flowchart files for the tasks.
-- [x] Complexity and data-structure notes for each set.
-
----
-*Prepared as a learning and problem-solving submission for the Python Track – Day 1.*
+The sample outputs are included to show how the programs run. Execution times may change depending on the system, so it is better to compare algorithms on the same machine and with the same input data.
