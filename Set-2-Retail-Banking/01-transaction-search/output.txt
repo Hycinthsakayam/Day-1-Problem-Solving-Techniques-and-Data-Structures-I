@@ -1,1 +1,6 @@
-Run python task.py for the sample output. Linear best O(1), average/worst O(n); binary best O(1), average/worst O(log n), sorted IDs required.
+best linear 1 binary 16
+middle linear 50001 binary 16
+last linear 100000 binary 17
+absent linear 100000 binary 17
+
+Complexity / explanation: Linear best O(1), average/worst O(n); binary best O(1), average/worst O(log n), sorted IDs required.

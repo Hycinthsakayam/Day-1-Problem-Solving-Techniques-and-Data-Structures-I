@@ -1,1 +1,4 @@
-Run python task.py for the sample output. Linear O(n), binary O(log n) per lookup; sorted patient IDs required. Timings vary by machine.
+linear 1000 lookups ms 106.827
+binary 1000 lookups ms 1.025
+
+Complexity / explanation: Linear O(n), binary O(log n) per lookup; sorted patient IDs required. Timings vary by machine.

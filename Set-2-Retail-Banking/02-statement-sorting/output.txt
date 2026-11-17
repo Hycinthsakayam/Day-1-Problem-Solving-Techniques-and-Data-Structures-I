@@ -1,1 +1,4 @@
-Run python task.py for the sample output. Both stable; equal timestamps preserve input order. Insertion O(n²); merge O(n log n), O(n) space.
+[('T2', '08:30'), ('T1', '09:00'), ('T3', '09:00')]
+[('T2', '08:30'), ('T1', '09:00'), ('T3', '09:00')]
+
+Complexity / explanation: Both stable; equal timestamps preserve input order. Insertion O(n²); merge O(n log n), O(n) space.

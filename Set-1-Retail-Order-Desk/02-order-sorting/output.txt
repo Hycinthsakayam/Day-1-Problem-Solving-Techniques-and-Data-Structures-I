@@ -1,1 +1,8 @@
-Run python task.py for the sample output. Bubble O(n²); merge/built-in O(n log n). First three bubble passes shown.
+input [120, 450, 80, 300, 200, 510, 150]
+pass 1 [450, 120, 300, 200, 510, 150, 80]
+pass 2 [450, 300, 200, 510, 150, 120, 80]
+pass 3 [450, 300, 510, 200, 150, 120, 80]
+bubble [510, 450, 300, 200, 150, 120, 80] merge [510, 450, 300, 200, 150, 120, 80]
+merge matches built-in True
+
+Complexity / explanation: Bubble O(n²); merge/built-in O(n log n). First three bubble passes shown.

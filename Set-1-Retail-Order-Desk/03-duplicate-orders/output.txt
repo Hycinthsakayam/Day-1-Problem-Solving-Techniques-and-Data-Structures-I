@@ -1,1 +1,3 @@
-Run python task.py for the sample output. Composite hash key: customer + amount + minute. Average O(n) time and O(n) space.
+duplicate pairs [('O1', 'O2')]
+
+Complexity / explanation: Composite hash key: customer + amount + minute. Average O(n) time and O(n) space.

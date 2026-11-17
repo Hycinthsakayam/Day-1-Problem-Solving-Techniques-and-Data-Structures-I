@@ -1,1 +1,4 @@
-Run python task.py for the sample output. Walk-in queue FIFO; recently viewed stack LIFO. Stack O(1); list queue removal O(n).
+walk-in FIFO W01 W02 W03
+most recent P30
+
+Complexity / explanation: Walk-in queue FIFO; recently viewed stack LIFO. Stack O(1); list queue removal O(n).

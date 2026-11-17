@@ -1,1 +1,5 @@
-Run python task.py for the sample output. Stack LIFO; queue FIFO. Stack O(1); list queue dequeue O(n); deque popleft O(1) approx.
+undo coupon edit
+dispatch O1 O2 O3
+deque O1
+
+Complexity / explanation: Stack LIFO; queue FIFO. Stack O(1); list queue dequeue O(n); deque popleft O(1) approx.

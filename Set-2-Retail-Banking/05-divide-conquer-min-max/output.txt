@@ -1,1 +1,4 @@
-Run python task.py for the sample output. Divide-and-conquer O(n), O(log n) recursion; brute force O(n), O(1) extra.
+divide/conquer (18.75, 9999)
+brute force (18.75, 9999)
+
+Complexity / explanation: Divide-and-conquer O(n), O(log n) recursion; brute force O(n), O(1) extra.
