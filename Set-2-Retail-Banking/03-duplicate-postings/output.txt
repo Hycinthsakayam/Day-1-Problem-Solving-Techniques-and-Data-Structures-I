@@ -1,3 +1,2 @@
-duplicate pairs [('P1', 'P2')]
-
-Complexity / explanation: Hash by account/amount/merchant then check 60 seconds. Average O(n) plus group comparisons; O(n) space.
+Command: python duplicate_posting_detection.py\n\nduplicate pairs [('P1', 'P2')]
+\nComplexity / explanation: Hash by account/amount/merchant then check 60 seconds. Average O(n) plus group comparisons; O(n) space.\n

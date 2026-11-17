@@ -1,3 +1,2 @@
-double bookings [('P10', '10:00')]
-
-Complexity / explanation: Hash set detects duplicate patient/slot keys in average O(n) time and O(n) space.
+Command: python double_booking_detection.py\n\ndouble bookings [('P10', '10:00')]
+\nComplexity / explanation: Hash set detects duplicate patient/slot keys in average O(n) time and O(n) space.\n

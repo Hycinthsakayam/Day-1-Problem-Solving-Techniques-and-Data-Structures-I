@@ -1,4 +1,3 @@
-walk-in FIFO W01 W02 W03
+Command: python walkin_queue_recent_stack.py\n\nwalk-in FIFO W01 W02 W03
 most recent P30
-
-Complexity / explanation: Walk-in queue FIFO; recently viewed stack LIFO. Stack O(1); list queue removal O(n).
+\nComplexity / explanation: Walk-in queue FIFO; recently viewed stack LIFO. Stack O(1); list queue removal O(n).\n

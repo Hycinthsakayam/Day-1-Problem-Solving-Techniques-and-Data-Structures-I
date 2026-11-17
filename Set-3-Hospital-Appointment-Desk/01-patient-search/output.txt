@@ -1,4 +1,3 @@
-linear 1000 lookups ms 106.827
-binary 1000 lookups ms 1.025
-
-Complexity / explanation: Linear O(n), binary O(log n) per lookup; sorted patient IDs required. Timings vary by machine.
+Command: python patient_search.py\n\nlinear 1000 lookups ms 107.438
+binary 1000 lookups ms 1.046
+\nComplexity / explanation: Linear O(n), binary O(log n) per lookup; sorted patient IDs required. Timings vary by machine.\n

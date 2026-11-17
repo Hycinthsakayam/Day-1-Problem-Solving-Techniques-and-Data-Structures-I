@@ -1,4 +1,3 @@
-FIFO TX100 TX101 TX102
+Command: python review_queue_adjustment_stack.py\n\nFIFO TX100 TX101 TX102
 undo correction +2
-
-Complexity / explanation: FIFO review queue; LIFO adjustment stack. Stack O(1); list queue dequeue O(n).
+\nComplexity / explanation: FIFO review queue; LIFO adjustment stack. Stack O(1); list queue dequeue O(n).\n

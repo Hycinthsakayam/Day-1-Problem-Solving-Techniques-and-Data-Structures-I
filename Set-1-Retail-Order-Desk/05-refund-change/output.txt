@@ -1,4 +1,3 @@
-greedy 6 [4, 1, 1]
+Command: python refund_change.py\n\ngreedy 6 [4, 1, 1]
 DP 6 [3, 3]
-
-Complexity / explanation: Greedy fails for 6 with [4,3,1]: 4+1+1; DP finds 3+3. DP O(amount × coins).
+\nComplexity / explanation: Greedy fails for 6 with [4,3,1]: 4+1+1; DP finds 3+3. DP O(amount × coins).\n

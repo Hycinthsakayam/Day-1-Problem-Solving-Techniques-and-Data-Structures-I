@@ -1,5 +1,4 @@
-linear True ms 1.744
-binary True ms 0.007
+Command: python order_search.py\n\nlinear True ms 1.498
+binary True ms 0.005
 records 50000
-
-Complexity / explanation: Linear O(n); binary O(log n) after sorting. Reads orders.csv or creates 50,000 demo orders.
+\nComplexity / explanation: Linear O(n); binary O(log n) after sorting. Reads orders.csv or creates 50,000 demo orders.\n

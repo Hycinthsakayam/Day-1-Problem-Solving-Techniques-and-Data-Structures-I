@@ -1,5 +1,4 @@
-undo coupon edit
+Command: python undo_stack_dispatch_queue.py\n\nundo coupon edit
 dispatch O1 O2 O3
 deque O1
-
-Complexity / explanation: Stack LIFO; queue FIFO. Stack O(1); list queue dequeue O(n); deque popleft O(1) approx.
+\nComplexity / explanation: Stack LIFO; queue FIFO. Stack O(1); list queue dequeue O(n); deque popleft O(1) approx.\n
