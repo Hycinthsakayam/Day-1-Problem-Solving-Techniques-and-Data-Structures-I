@@ -1,0 +1,1 @@
+Run `python task.py` to generate the output. Both stable; T1 stays before T3 for equal timestamps. Insertion O(n²), merge O(n log n), merge space O(n).
