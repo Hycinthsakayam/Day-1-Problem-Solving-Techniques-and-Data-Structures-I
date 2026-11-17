@@ -280,6 +280,14 @@ jobs:
               (folder/"task.py").write_text(codewrap(code),encoding="utf-8")
               (folder/"output.txt").write_text("Run python task.py for the sample output. "+note+"\n",encoding="utf-8")
               (folder/"flowchart.svg").write_text(svg(slug,note),encoding="utf-8")
+          import subprocess
+          for set_name,slug,code,note in tasks:
+              folder=Path(set_name)/slug
+              run=subprocess.run(["python","task.py"],cwd=folder,text=True,capture_output=True)
+              actual=run.stdout + run.stderr
+              if run.returncode:
+                  raise SystemExit(f"{folder}/task.py failed:\\n{actual}")
+              (folder/"output.txt").write_text(actual + "\\nComplexity / explanation: " + note + "\\n",encoding="utf-8")
           PY
       - name: Commit generated files
         run: |
