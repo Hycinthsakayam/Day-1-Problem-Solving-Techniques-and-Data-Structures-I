@@ -268,32 +268,18 @@ jobs:
            a=[(0,4,"A"),(1,2,"B"),(2,5,"C"),(4,7,"D"),(5,9,"E"),(7,8,"F")]
            print("DP",dp(a));print("greedy",greedy(a))''',"DP take/skip O(n log n), O(n) space. Earliest-finish greedy is also optimal for unweighted maximum-count scheduling.")
           ]
+          def codewrap(s):
+              return "\\n".join(line[10:] if line.startswith("          ") else line for line in s.splitlines())+"\\n"
+          def svg(slug,note):
+              import html
+              label=html.escape(slug.replace("-"," "))
+              return f'''<svg xmlns="http://www.w3.org/2000/svg" width="820" height="190"><rect width="820" height="190" rx="14" fill="#f8fafc"/><g font-family="Arial" text-anchor="middle"><rect x="20" y="50" width="130" height="60" rx="8" fill="#dbeafe" stroke="#2563eb"/><text x="85" y="85">Input</text><path d="M150 80h65m-8-8 8 8-8 8" stroke="#334155" fill="none"/><rect x="220" y="50" width="200" height="60" rx="8" fill="#dcfce7" stroke="#16a34a"/><text x="320" y="85">{label}</text><path d="M420 80h65m-8-8 8 8-8 8" stroke="#334155" fill="none"/><rect x="490" y="50" width="130" height="60" rx="8" fill="#fef3c7" stroke="#d97706"/><text x="555" y="85">Check / Update</text><path d="M620 80h45m-8-8 8 8-8 8" stroke="#334155" fill="none"/><rect x="670" y="50" width="130" height="60" rx="8" fill="#ede9fe" stroke="#7c3aed"/><text x="735" y="85">Result</text><text x="410" y="150" font-size="11" fill="#475569">{html.escape(note[:110])}</text></g></svg>'''
           for set_name,slug,code,note in tasks:
               folder=Path(set_name)/slug
               folder.mkdir(parents=True,exist_ok=True)
               (folder/"task.py").write_text(codewrap(code),encoding="utf-8")
               (folder/"output.txt").write_text("Run python task.py for the sample output. "+note+"\n",encoding="utf-8")
               (folder/"flowchart.svg").write_text(svg(slug,note),encoding="utf-8")
-          def codewrap(s):
-              lines=s.splitlines()
-              return "\n".join(line[10:] if line.startswith("          ") else line for line in lines)+"\n"
-          def svg(slug,note):
-              import html
-              label=html.escape(slug.replace("-"," "))
-              return f'''<svg xmlns="http://www.w3.org/2000/svg" width="820" height="190"><rect width="820" height="190" rx="14" fill="#f8fafc"/><g font-family="Arial" text-anchor="middle"><rect x="20" y="50" width="130" height="60" rx="8" fill="#dbeafe" stroke="#2563eb"/><text x="85" y="85">Input</text><path d="M150 80h65m-8-8 8 8-8 8" stroke="#334155" fill="none"/><rect x="220" y="50" width="200" height="60" rx="8" fill="#dcfce7" stroke="#16a34a"/><text x="320" y="85">{label}</text><path d="M420 80h65m-8-8 8 8-8 8" stroke="#334155" fill="none"/><rect x="490" y="50" width="130" height="60" rx="8" fill="#fef3c7" stroke="#d97706"/><text x="555" y="85">Check / Update</text><path d="M620 80h45m-8-8 8 8-8 8" stroke="#334155" fill="none"/><rect x="670" y="50" width="130" height="60" rx="8" fill="#ede9fe" stroke="#7c3aed"/><text x="735" y="85">Result</text><text x="410" y="150" font-size="11" fill="#475569">{html.escape(note[:110])}</text></g></svg>'''
-          (Path("README.md")).write_text("""# Day 1 – Problem Solving Techniques and Data Structures I
-
-          Mavericks Segue 2026 | Python Track | 14 October 2026
-
-          ## Sets
-          - Set 1 – Retail Order Desk (5 tasks)
-          - Set 2 – Retail Banking Transaction Review (5 tasks)
-          - Set 3 – Hospital Appointment Desk (5 tasks)
-
-          Every task folder contains task.py, output.txt and flowchart.svg. Run a task using python task.py (Python 3.9+, no third-party packages).
-
-          Set 1 Task 1 reads orders.csv beside the script when present; otherwise it creates 50,000 deterministic demo records. Use the trainer CSV for the actual benchmark. Timing varies by machine.
-          """,encoding="utf-8")
           PY
       - name: Commit generated files
         run: |
