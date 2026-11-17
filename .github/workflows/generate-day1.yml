@@ -274,20 +274,28 @@ jobs:
               import html
               label=html.escape(slug.replace("-"," "))
               return f'''<svg xmlns="http://www.w3.org/2000/svg" width="820" height="190"><rect width="820" height="190" rx="14" fill="#f8fafc"/><g font-family="Arial" text-anchor="middle"><rect x="20" y="50" width="130" height="60" rx="8" fill="#dbeafe" stroke="#2563eb"/><text x="85" y="85">Input</text><path d="M150 80h65m-8-8 8 8-8 8" stroke="#334155" fill="none"/><rect x="220" y="50" width="200" height="60" rx="8" fill="#dcfce7" stroke="#16a34a"/><text x="320" y="85">{label}</text><path d="M420 80h65m-8-8 8 8-8 8" stroke="#334155" fill="none"/><rect x="490" y="50" width="130" height="60" rx="8" fill="#fef3c7" stroke="#d97706"/><text x="555" y="85">Check / Update</text><path d="M620 80h45m-8-8 8 8-8 8" stroke="#334155" fill="none"/><rect x="670" y="50" width="130" height="60" rx="8" fill="#ede9fe" stroke="#7c3aed"/><text x="735" y="85">Result</text><text x="410" y="150" font-size="11" fill="#475569">{html.escape(note[:110])}</text></g></svg>'''
+          code_names = {
+          "01-order-search":"order_search.py", "02-order-sorting":"order_sorting.py", "03-duplicate-orders":"duplicate_order_detection.py", "04-stack-queue":"undo_stack_dispatch_queue.py", "05-refund-change":"refund_change.py",
+          "01-transaction-search":"transaction_search.py", "02-statement-sorting":"statement_sorting.py", "03-duplicate-postings":"duplicate_posting_detection.py", "04-review-queue-stack":"review_queue_adjustment_stack.py", "05-divide-conquer-min-max":"transaction_min_max.py",
+          "01-patient-search":"patient_search.py", "02-urgency-sorting":"appointment_urgency_sort.py", "03-double-bookings":"double_booking_detection.py", "04-walkin-queue-stack":"walkin_queue_recent_stack.py", "05-appointment-dp":"appointment_scheduling_dp.py"
+          }
           for set_name,slug,code,note in tasks:
               folder=Path(set_name)/slug
               folder.mkdir(parents=True,exist_ok=True)
-              (folder/"task.py").write_text(codewrap(code),encoding="utf-8")
-              (folder/"output.txt").write_text("Run python task.py for the sample output. "+note+"\n",encoding="utf-8")
+              filename=code_names[slug]
+              (folder/filename).write_text(codewrap(code),encoding="utf-8")
+              old_file=folder/"task.py"
+              if old_file.exists(): old_file.unlink()
               (folder/"flowchart.svg").write_text(svg(slug,note),encoding="utf-8")
           import subprocess
           for set_name,slug,code,note in tasks:
               folder=Path(set_name)/slug
-              run=subprocess.run(["python","task.py"],cwd=folder,text=True,capture_output=True)
+              filename=code_names[slug]
+              run=subprocess.run(["python",filename],cwd=folder,text=True,capture_output=True)
               actual=run.stdout + run.stderr
               if run.returncode:
-                  raise SystemExit(f"{folder}/task.py failed:\n{actual}")
-              (folder/"output.txt").write_text(actual + "\nComplexity / explanation: " + note + "\n",encoding="utf-8")
+                  raise SystemExit(f"{folder}/{filename} failed:\\n{actual}")
+              (folder/"output.txt").write_text("Command: python " + filename + "\\n\\n" + actual + "\\nComplexity / explanation: " + note + "\\n",encoding="utf-8")
           PY
       - name: Commit generated files
         run: |
