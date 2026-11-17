@@ -269,7 +269,7 @@ jobs:
            print("DP",dp(a));print("greedy",greedy(a))''',"DP take/skip O(n log n), O(n) space. Earliest-finish greedy is also optimal for unweighted maximum-count scheduling.")
           ]
           def codewrap(s):
-              return "\\n".join(line[10:] if line.startswith("          ") else line for line in s.splitlines())+"\\n"
+              return "\n".join(line[10:] if line.startswith("          ") else line for line in s.splitlines())+"\n"
           def svg(slug,note):
               import html
               label=html.escape(slug.replace("-"," "))
@@ -286,8 +286,8 @@ jobs:
               run=subprocess.run(["python","task.py"],cwd=folder,text=True,capture_output=True)
               actual=run.stdout + run.stderr
               if run.returncode:
-                  raise SystemExit(f"{folder}/task.py failed:\\n{actual}")
-              (folder/"output.txt").write_text(actual + "\\nComplexity / explanation: " + note + "\\n",encoding="utf-8")
+                  raise SystemExit(f"{folder}/task.py failed:\n{actual}")
+              (folder/"output.txt").write_text(actual + "\nComplexity / explanation: " + note + "\n",encoding="utf-8")
           PY
       - name: Commit generated files
         run: |
