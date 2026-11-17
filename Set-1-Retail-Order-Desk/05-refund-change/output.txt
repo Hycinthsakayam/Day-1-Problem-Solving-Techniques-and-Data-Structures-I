@@ -1,1 +1,1 @@
-Run `python task.py` to generate the output. Greedy fails for amount 6 with [4,3,1]: 4+1+1; DP finds 3+3. DP O(amount × coin types) time, O(amount) space.
+Run python task.py for the sample output. Greedy fails for 6 with [4,3,1]: 4+1+1; DP finds 3+3. DP O(amount × coins).

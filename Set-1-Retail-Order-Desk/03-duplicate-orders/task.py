@@ -1,11 +1,1 @@
-from collections import defaultdict
-def find(rows):
- d=defaultdict(list);out=[]
- for r in rows:
-  k=(r["customerId"],round(float(r["amount"]),2),r["createdAt"][:16])
-  for old in d[k]:out.append((old["orderId"],r["orderId"]))
-  d[k].append(r)
- return out
-if __name__=="__main__":
- a=[{"orderId":"O1","customerId":"C7","amount":250,"createdAt":"2026-10-14T10:31:05"},{"orderId":"O2","customerId":"C7","amount":250,"createdAt":"2026-10-14T10:31:48"},{"orderId":"O3","customerId":"C7","amount":250,"createdAt":"2026-10-14T10:32:01"},{"orderId":"O4","customerId":"C9","amount":250,"createdAt":"2026-10-14T10:31:20"}]
- print(find(a))
+from collections import defaultdict\ndef find(rows):\n d=defaultdict(list);out=[]\n for r in rows:\n  k=(r["customerId"],round(float(r["amount"]),2),r["createdAt"][:16])\n  for old in d[k]:out.append((old["orderId"],r["orderId"]))\n  d[k].append(r)\n return out\nif __name__=="__main__":\n a=[{"orderId":"O1","customerId":"C7","amount":250,"createdAt":"2026-10-14T10:31:05"},{"orderId":"O2","customerId":"C7","amount":250,"createdAt":"2026-10-14T10:31:48"},{"orderId":"O3","customerId":"C7","amount":250,"createdAt":"2026-10-14T10:32:01"}]\n print("duplicate pairs",find(a))\n

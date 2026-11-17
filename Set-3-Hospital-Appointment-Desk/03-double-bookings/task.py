@@ -1,0 +1,1 @@
+def find(a):\n seen=set();out=[]\n for r in a:\n  k=(r["patient_id"],r["slot"])\n  if k in seen:out.append(k)\n  else:seen.add(k)\n return out\nif __name__=="__main__":\n a=[{"patient_id":"P10","slot":"10:00"},{"patient_id":"P11","slot":"10:00"},{"patient_id":"P10","slot":"10:00"},{"patient_id":"P10","slot":"10:30"}]\n print("double bookings",find(a))\n

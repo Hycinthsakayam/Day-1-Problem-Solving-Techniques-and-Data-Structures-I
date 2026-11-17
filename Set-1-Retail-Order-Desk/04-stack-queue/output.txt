@@ -1,1 +1,1 @@
-Run `python task.py` to generate the output. Stack is LIFO; queue is FIFO. Stack O(1); list queue dequeue O(n); deque popleft O(1) approximately.
+Run python task.py for the sample output. Stack LIFO; queue FIFO. Stack O(1); list queue dequeue O(n); deque popleft O(1) approx.

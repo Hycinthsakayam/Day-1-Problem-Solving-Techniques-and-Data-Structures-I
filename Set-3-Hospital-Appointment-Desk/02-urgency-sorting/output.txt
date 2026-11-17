@@ -1,0 +1,1 @@
+Run python task.py for the sample output. Sort by (urgency, arrival), 1 is most urgent. Selection O(n²); quicksort average O(n log n), worst O(n²).

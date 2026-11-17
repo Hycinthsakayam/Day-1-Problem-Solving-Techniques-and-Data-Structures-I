@@ -1,0 +1,1 @@
+Run python task.py for the sample output. Hash by account/amount/merchant then check 60 seconds. Average O(n) plus group comparisons; O(n) space.

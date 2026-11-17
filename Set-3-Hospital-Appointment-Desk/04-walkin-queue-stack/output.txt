@@ -1,0 +1,1 @@
+Run python task.py for the sample output. Walk-in queue FIFO; recently viewed stack LIFO. Stack O(1); list queue removal O(n).

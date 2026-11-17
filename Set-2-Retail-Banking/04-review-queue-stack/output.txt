@@ -1,0 +1,1 @@
+Run python task.py for the sample output. FIFO review queue; LIFO adjustment stack. Stack O(1); list queue dequeue O(n).

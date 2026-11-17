@@ -1,0 +1,1 @@
+Run python task.py for the sample output. Hash set detects duplicate patient/slot keys in average O(n) time and O(n) space.

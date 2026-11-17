@@ -1,0 +1,1 @@
+def minmax(a):\n if not a:raise ValueError("empty")\n if len(a)==1:return a[0],a[0]\n if len(a)==2:return min(a),max(a)\n m=len(a)//2;x,y=minmax(a[:m]);u,v=minmax(a[m:])\n return min(x,u),max(y,v)\nif __name__=="__main__":\n a=[1200.5,99,450.25,9999,18.75,2300,650]\n print("divide/conquer",minmax(a));print("brute force",(min(a),max(a)))\n

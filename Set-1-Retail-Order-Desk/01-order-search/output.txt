@@ -1,1 +1,1 @@
-Run `python task.py` to generate the output. Linear O(n), binary O(log n); reads orders.csv or generates 50,000 demo records.
+Run python task.py for the sample output. Linear O(n); binary O(log n) after sorting. Reads orders.csv or creates 50,000 demo orders.

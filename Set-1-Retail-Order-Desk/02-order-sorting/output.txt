@@ -1,1 +1,1 @@
-Run `python task.py` to generate the output. Bubble O(n²); merge and built-in sort O(n log n). Three bubble passes are traced.
+Run python task.py for the sample output. Bubble O(n²); merge/built-in O(n log n). First three bubble passes shown.

@@ -1,18 +1,1 @@
-def linear(a,x):
- c=0
- for v in a:
-  c+=1
-  if v==x:return c
- return c
-def binary(a,x):
- l,h=0,len(a)-1;c=0
- while l<=h:
-  m=(l+h)//2;c+=1
-  if a[m]==x:return c
-  if a[m]<x:l=m+1
-  else:h=m-1
- return c
-if __name__=="__main__":
- a=list(range(100000))
- for name,x in [("best",0),("middle",50000),("last",99999),("absent",100001)]:
-  print(name,"linear",linear(a,x),"binary",binary(a,x))
+def linear(a,x):\n c=0\n for v in a:\n  c+=1\n  if v==x:return c\n return c\ndef binary(a,x):\n l,h=0,len(a)-1;c=0\n while l<=h:\n  m=(l+h)//2;c+=1\n  if a[m]==x:return c\n  if a[m]<x:l=m+1\n  else:h=m-1\n return c\nif __name__=="__main__":\n a=list(range(100000))\n for name,x in [("best",0),("middle",50000),("last",99999),("absent",100001)]:print(name,"linear",linear(a,x),"binary",binary(a,x))\n

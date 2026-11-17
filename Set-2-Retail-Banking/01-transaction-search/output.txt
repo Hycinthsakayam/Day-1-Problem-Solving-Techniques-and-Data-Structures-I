@@ -1,1 +1,1 @@
-Run `python task.py` to generate the output. Linear best O(1), average/worst O(n); binary best O(1), average/worst O(log n), sorted IDs required.
+Run python task.py for the sample output. Linear best O(1), average/worst O(n); binary best O(1), average/worst O(log n), sorted IDs required.

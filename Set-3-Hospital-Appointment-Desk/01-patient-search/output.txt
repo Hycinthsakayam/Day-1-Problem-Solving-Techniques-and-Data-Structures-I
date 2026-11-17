@@ -1,0 +1,1 @@
+Run python task.py for the sample output. Linear O(n), binary O(log n) per lookup; sorted patient IDs required. Timings vary by machine.
