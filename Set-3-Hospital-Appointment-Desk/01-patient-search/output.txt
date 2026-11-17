@@ -1,3 +1,12 @@
-Command: python patient_search.py\n\nlinear 1000 lookups ms 107.438
-binary 1000 lookups ms 1.046
-\nComplexity / explanation: Linear O(n), binary O(log n) per lookup; sorted patient IDs required. Timings vary by machine.\n
+Command: python patient_search.py
+
+Patient records: 20,000
+Example look-up P112345 -> {'patientId': 'P112345', 'name': 'Meena Kumar', 'age': 55}
+
+1,000 look-ups (954 found, 46 not registered)
+  Linear search: 0.6926 s
+  Binary search: 0.0065 s   (same results: True)
+  Speed-up: about 107x
+
+Linear search is O(n): about 10,000 checks per look-up, and 20,000 for a missing patient.
+Binary search is O(log n): at most 15 checks, because the records are kept sorted by patient ID.

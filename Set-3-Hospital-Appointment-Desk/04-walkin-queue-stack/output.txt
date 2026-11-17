@@ -1,3 +1,23 @@
-Command: python walkin_queue_recent_stack.py\n\nwalk-in FIFO W01 W02 W03
-most recent P30
-\nComplexity / explanation: Walk-in queue FIFO; recently viewed stack LIFO. Stack O(1); list queue removal O(n).\n
+Command: python walkin_queue_recent_stack.py
+
+Walk-in token line
+  token 101 issued to Arun     waiting: 1
+  token 102 issued to Divya    waiting: 2
+  token 103 issued to Karthik  waiting: 3
+  token 104 issued to Meena    waiting: 4
+  token 105 for Rahul -> token line is full
+  calling token 101 (Arun)   waiting: 3
+  calling token 102 (Divya)   waiting: 2
+  token 105 issued to Rahul    waiting: 3  (reuses the freed slot)
+  calling token 103 (Karthik)   waiting: 2
+  calling token 104 (Meena)   waiting: 1
+  calling token 105 (Rahul)   waiting: 0
+
+Recent patients viewed (most recent first)
+  viewed P100045: ['P100045']
+  viewed P101233: ['P101233', 'P100045']
+  viewed P100045: ['P100045', 'P101233']
+  viewed P108800: ['P108800', 'P100045', 'P101233']
+  viewed P104411: ['P104411', 'P108800', 'P100045', 'P101233']
+  viewed P109900: ['P109900', 'P104411', 'P108800', 'P100045']
+  back -> P109900, now ['P104411', 'P108800', 'P100045']

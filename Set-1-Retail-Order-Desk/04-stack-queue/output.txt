@@ -1,4 +1,28 @@
-Command: python undo_stack_dispatch_queue.py\n\nundo coupon edit
-dispatch O1 O2 O3
-deque O1
-\nComplexity / explanation: Stack LIFO; queue FIFO. Stack O(1); list queue dequeue O(n); deque popleft O(1) approx.\n
+Command: python undo_stack_dispatch_queue.py
+
+Undo last order edit (own Stack)
+  edit  qty      -> 2            order = {'orderId': 'ORD000123', 'qty': 2, 'address': 'Anna Nagar', 'amount': 1499.0}
+  edit  amount   -> 2998.0       order = {'orderId': 'ORD000123', 'qty': 2, 'address': 'Anna Nagar', 'amount': 2998.0}
+  edit  address  -> T Nagar      order = {'orderId': 'ORD000123', 'qty': 2, 'address': 'T Nagar', 'amount': 2998.0}
+  undo  address  -> Anna Nagar   order = {'orderId': 'ORD000123', 'qty': 2, 'address': 'Anna Nagar', 'amount': 2998.0}
+  undo  amount   -> 1499.0       order = {'orderId': 'ORD000123', 'qty': 2, 'address': 'Anna Nagar', 'amount': 1499.0}
+  edits left to undo: 1
+
+Dispatch line (own Queue)
+  packed   ORD000501  (waiting: 1)
+  packed   ORD000502  (waiting: 2)
+  packed   ORD000503  (waiting: 3)
+  packed   ORD000504  (waiting: 4)
+  dispatch ORD000501  (waiting: 3)
+  dispatch ORD000502  (waiting: 2)
+  dispatch ORD000503  (waiting: 1)
+  dispatch ORD000504  (waiting: 0)
+
+Timing 200,000 push+pop / enqueue+dequeue operations
+  own Stack             : 0.3004 s
+  list (append / pop)   : 0.0232 s
+  own Queue             : 0.1410 s
+  deque (append/popleft): 0.0199 s
+  list.pop(0) as a queue, only 20,000 ops: 0.7534 s  (O(n) per dequeue)
+
+Built-ins are faster because they are written in C; all are O(1) per operation except list.pop(0).

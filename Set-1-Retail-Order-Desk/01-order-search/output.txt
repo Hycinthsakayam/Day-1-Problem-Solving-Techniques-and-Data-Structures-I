@@ -1,4 +1,17 @@
-Command: python order_search.py\n\nlinear True ms 1.498
-binary True ms 0.005
-records 50000
-\nComplexity / explanation: Linear O(n); binary O(log n) after sorting. Reads orders.csv or creates 50,000 demo orders.\n
+Command: python order_search.py
+
+Loaded 50,000 orders
+
+Linear search for ORD031415: index 31414 -> {'orderId': 'ORD031415', 'customerId': 'CUST3271', 'amount': 10292.19, 'createdAt': '2026-11-16 15:13:25'}
+Binary search for ORD031415: index 31414 -> {'orderId': 'ORD031415', 'customerId': 'CUST3271', 'amount': 10292.19, 'createdAt': '2026-11-16 15:13:25'}
+Search for ORD999999 (missing): linear=-1, binary=-1
+
+Benchmark: 1,000 look-ups on 50,000 orders
+  Linear search :   2.2696 s  (   2269.6 microseconds per look-up)
+  Binary search :   0.0041 s  (      4.1 microseconds per look-up)
+  Binary search was about 548 times faster
+
+Why:
+  Linear search checks orders one by one -> O(n), about 25,000 checks on average.
+  Binary search halves the range each step -> O(log n), at most 16 checks for 50,000 orders.
+  Binary search needs the list sorted by orderId first (one-time O(n log n)).

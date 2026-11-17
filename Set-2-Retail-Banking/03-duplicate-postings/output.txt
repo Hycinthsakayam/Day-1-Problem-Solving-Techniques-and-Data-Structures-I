@@ -1,2 +1,23 @@
-Command: python duplicate_posting_detection.py\n\nduplicate pairs [('P1', 'P2')]
-\nComplexity / explanation: Hash by account/amount/merchant then check 60 seconds. Average O(n) plus group comparisons; O(n) space.\n
+Command: python duplicate_posting_detection.py
+
+Transactions in the day's file: 5,000
+Duplicate postings found: 12  (checked in 4.84 ms)
+
+First      Second     Account  Merchant               Amount  Gap
+TXN100019  TXN104996  ACC0509  Apollo Pharmacy      5,203.78  29s
+TXN101135  TXN104998  ACC0380  Reliance Digital    12,508.98  43s
+TXN100924  TXN104999  ACC0598  Swiggy              15,139.30  54s
+TXN103558  TXN104992  ACC0516  Amazon              20,017.88  9s
+TXN101569  TXN104989  ACC0338  Swiggy              33,945.84  49s
+TXN100483  TXN104991  ACC0413  BigBasket           18,510.55  38s
+TXN100129  TXN104988  ACC0440  BigBasket           68,246.08  25s
+TXN101812  TXN104990  ACC0504  BigBasket           10,932.84  54s
+TXN100104  TXN104995  ACC0207  Zomato              47,168.90  53s
+TXN104511  TXN104994  ACC0398  Swiggy              65,996.41  27s
+TXN103742  TXN104997  ACC0435  HP Petrol            8,791.01  48s
+TXN101250  TXN104993  ACC0485  IRCTC               71,731.99  7s
+
+Why a dictionary (hash map):
+  the key (account, amount, merchant) finds the previous matching posting in O(1),
+  and the file is already in time order, so one pass is enough -> O(n) time, O(n) space.
+  Comparing every pair would be O(n^2).

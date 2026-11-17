@@ -1,3 +1,36 @@
-Command: python statement_sorting.py\n\n[('T2', '08:30'), ('T1', '09:00'), ('T3', '09:00')]
-[('T2', '08:30'), ('T1', '09:00'), ('T3', '09:00')]
-\nComplexity / explanation: Both stable; equal timestamps preserve input order. Insertion O(n²); merge O(n log n), O(n) space.\n
+Command: python statement_sorting.py
+
+Received order:
+  seq 1  2026-11-16 10:05  Salary credit           85000  balance   90000
+  seq 2  2026-11-16 09:30  ATM withdrawal          -2000  balance   88000
+  seq 3  2026-11-16 10:05  Rent transfer          -18000  balance   70000
+  seq 4  2026-11-16 08:15  UPI - milk                -60  balance   69940
+  seq 5  2026-11-16 10:05  Credit card payment    -12000  balance   57940
+
+Insertion sort by posting time (stable):
+  seq 4  2026-11-16 08:15  UPI - milk                -60  balance    4940
+  seq 2  2026-11-16 09:30  ATM withdrawal          -2000  balance    2940
+  seq 1  2026-11-16 10:05  Salary credit           85000  balance   87940
+  seq 3  2026-11-16 10:05  Rent transfer          -18000  balance   69940
+  seq 5  2026-11-16 10:05  Credit card payment    -12000  balance   57940
+
+Merge sort by posting time (stable):
+  seq 4  2026-11-16 08:15  UPI - milk                -60  balance    4940
+  seq 2  2026-11-16 09:30  ATM withdrawal          -2000  balance    2940
+  seq 1  2026-11-16 10:05  Salary credit           85000  balance   87940
+  seq 3  2026-11-16 10:05  Rent transfer          -18000  balance   69940
+  seq 5  2026-11-16 10:05  Credit card payment    -12000  balance   57940
+
+Selection sort by posting time (NOT stable):
+  seq 4  2026-11-16 08:15  UPI - milk                -60  balance    4940
+  seq 2  2026-11-16 09:30  ATM withdrawal          -2000  balance    2940
+  seq 3  2026-11-16 10:05  Rent transfer          -18000  balance  -15060
+  seq 1  2026-11-16 10:05  Salary credit           85000  balance   69940
+  seq 5  2026-11-16 10:05  Credit card payment    -12000  balance   57940
+
+Three lines share 10:05. A stable sort keeps them in received order (salary first), so the running
+balance never dips. The unstable sort moves the credit-card payment before the salary, and the statement
+shows a negative balance that never really happened.
+
+insertion sort  5,000 lines: 1.8355 s, stable: True
+merge sort      5,000 lines: 0.0269 s, stable: True

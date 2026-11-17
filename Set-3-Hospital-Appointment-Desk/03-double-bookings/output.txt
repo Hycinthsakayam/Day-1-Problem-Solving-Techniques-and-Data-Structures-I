@@ -1,2 +1,11 @@
-Command: python double_booking_detection.py\n\ndouble bookings [('P10', '10:00')]
-\nComplexity / explanation: Hash set detects duplicate patient/slot keys in average O(n) time and O(n) space.\n
+Command: python double_booking_detection.py
+
+Booking requests: 20,002
+Booked: 18,236   Rejected as double bookings: 1766
+First rejected requests: [('P102484', '16:30'), ('P101223', '13:45'), ('P100762', '14:00'), ('P102108', '12:00'), ('P100738', '13:45')]
+Time with a set: 10.64 ms
+Time with a list scan for only 5,000 requests: 455.65 ms
+
+A set (hash table) checks membership in O(1) on average, so n bookings cost O(n).
+A list scan is O(n) per check, so n bookings cost O(n^2): at 20,000 bookings that is ~200 million
+comparisons, which is too slow for a live reception desk.

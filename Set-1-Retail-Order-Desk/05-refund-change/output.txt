@@ -1,3 +1,17 @@
-Command: python refund_change.py\n\ngreedy 6 [4, 1, 1]
-DP 6 [3, 3]
-\nComplexity / explanation: Greedy fails for 6 with [4,3,1]: 4+1+1; DP finds 3+3. DP O(amount × coins).\n
+Command: python refund_change.py
+
+Indian notes/coins: [2000, 500, 200, 100, 50, 20, 10, 5, 2, 1]
+  refund Rs.2749: greedy 8 pieces [2000, 500, 200, 20, 20, 5, 2, 2]
+               dp     8 pieces
+  refund Rs.3888: greedy 12 pieces [2000, 500, 500, 500, 200, 100, 50, 20, 10, 5, 2, 1]
+               dp     12 pieces
+  refund Rs.576: greedy 5 pieces [500, 50, 20, 5, 1]
+               dp     5 pieces
+
+A set where greedy fails: [1, 7, 10]
+  refund 14: greedy 5 [10, 1, 1, 1, 1]   dp 2 [7, 7]  <- greedy is not optimal
+  refund 15: greedy 6 [10, 1, 1, 1, 1, 1]   dp 3 [7, 7, 1]  <- greedy is not optimal
+  refund 21: greedy 3 [10, 10, 1]   dp 3 [10, 10, 1]
+
+Greedy: O(k + number of coins) time, O(1) extra space - works for 'canonical' sets like INR.
+DP    : O(amount x k) time, O(amount) space - always gives the minimum.

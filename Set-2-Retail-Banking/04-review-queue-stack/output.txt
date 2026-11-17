@@ -1,3 +1,20 @@
-Command: python review_queue_adjustment_stack.py\n\nFIFO TX100 TX101 TX102
-undo correction +2
-\nComplexity / explanation: FIFO review queue; LIFO adjustment stack. Stack O(1); list queue dequeue O(n).\n
+Command: python review_queue_adjustment_stack.py
+
+Manual-review backlog (first in, first out)
+  flagged : TXN104512 suspicious foreign POS     backlog = 1
+  flagged : TXN104577 velocity alert             backlog = 2
+  flagged : TXN104603 high value                 backlog = 3
+  flagged : TXN104650 card-not-present           backlog = 4
+  reviewed: TXN104512 suspicious foreign POS     backlog = 3
+  reviewed: TXN104577 velocity alert             backlog = 2
+  reviewed: TXN104603 high value                 backlog = 1
+  reviewed: TXN104650 card-not-present           backlog = 0
+  dequeue on empty backlog -> None
+
+Adjustments on account ACC0042 (last in, first out)
+  apply   reverse ATM fee      +25.00  balance  25,025.00
+  apply   chargeback Swiggy   +450.00  balance  25,475.00
+  apply   late fee            -500.00  balance  24,975.00
+  reverse late fee            +500.00  balance  25,475.00
+  reverse chargeback Swiggy   -450.00  balance  25,025.00
+  adjustments still applied: 1

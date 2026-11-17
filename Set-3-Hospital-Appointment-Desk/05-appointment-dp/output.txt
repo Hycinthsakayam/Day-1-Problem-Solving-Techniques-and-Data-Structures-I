@@ -1,3 +1,22 @@
-Command: python appointment_scheduling_dp.py\n\nDP (3, ['B', 'C', 'F'])
-greedy (3, ['B', 'C', 'F'])
-\nComplexity / explanation: DP take/skip O(n log n), O(n) space. Earliest-finish greedy is also optimal for unweighted maximum-count scheduling.\n
+Command: python appointment_scheduling_dp.py
+
+Requested slots: 15
+
+Dynamic programming: 8 appointments
+  Divya 09:10-09:30, Karthik 09:30-09:50, Rahul 09:50-10:10, Vikram 10:10-10:30, Sanjay 10:40-10:55, Nithya 10:55-11:10, Deepa 11:10-11:25, Arjun 11:25-11:40
+
+Greedy by earliest finish  : 8 appointments - same as DP (optimal)
+  Divya 09:10-09:30, Karthik 09:30-09:50, Rahul 09:50-10:10, Vikram 10:10-10:30, Sanjay 10:40-10:55, Nithya 10:55-11:10, Deepa 11:10-11:25, Arjun 11:25-11:40
+
+Greedy by earliest start   : 3 appointments - fewer than DP
+  Arun 09:00-10:00, Sneha 10:00-11:00, Imran 11:05-12:00
+
+Greedy by shortest duration: 8 appointments - same as DP (optimal)
+  Divya 09:10-09:30, Karthik 09:30-09:50, Rahul 09:50-10:10, Priya 10:25-10:40, Sanjay 10:40-10:55, Nithya 10:55-11:10, Deepa 11:10-11:25, Arjun 11:25-11:40
+
+Counter-example for 'shortest duration': A 09:00-09:30, B 09:25-09:40, C 09:35-10:10
+  greedy by shortest duration: 1 (takes B, which blocks A and C)
+  dynamic programming        : 2 (A and C)
+
+DP checks every 'take or skip' choice: O(n log n) with binary search on end times.
+Greedy by earliest finish is also optimal for counting appointments; other greedy rules can fail.

@@ -1,2 +1,22 @@
-Command: python duplicate_order_detection.py\n\nduplicate pairs [('O1', 'O2')]
-\nComplexity / explanation: Composite hash key: customer + amount + minute. Average O(n) time and O(n) space.\n
+Command: python duplicate_order_detection.py
+
+Checked 50,000 orders in 80.3 ms
+Duplicate submissions found: 25
+
+Original    Duplicate   Customer      Amount  Minute
+ORD002336   ORD002337   CUST3526   22,015.01  2026-11-16 01:09
+ORD002439   ORD002456   CUST0673   12,204.52  2026-11-16 01:12
+ORD003734   ORD003738   CUST5440    1,287.74  2026-11-16 01:51
+ORD004276   ORD004279   CUST7547   11,893.08  2026-11-16 02:08
+ORD009771   ORD009772   CUST0739   22,749.64  2026-11-16 04:47
+ORD010724   ORD010730   CUST7811   12,404.61  2026-11-16 05:13
+ORD012113   ORD012116   CUST7353    4,222.23  2026-11-16 05:52
+ORD014894   ORD014900   CUST6045   21,874.70  2026-11-16 07:14
+ORD015480   ORD015490   CUST2087    2,939.34  2026-11-16 07:31
+ORD015863   ORD015869   CUST6681   22,536.66  2026-11-16 07:42
+... and 15 more
+
+Complexity:
+  Time : O(n) - one pass, each dictionary look-up/insert is O(1) on average
+  Space: O(n) - the dictionary can hold one key per order in the worst case
+  A nested-loop comparison would be O(n^2) = about 1.25 billion pairs for 50,000 orders.

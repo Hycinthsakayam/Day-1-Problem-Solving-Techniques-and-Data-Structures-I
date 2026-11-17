@@ -1,7 +1,26 @@
-Command: python order_sorting.py\n\ninput [120, 450, 80, 300, 200, 510, 150]
-pass 1 [450, 120, 300, 200, 510, 150, 80]
-pass 2 [450, 300, 200, 510, 150, 120, 80]
-pass 3 [450, 300, 510, 200, 150, 120, 80]
-bubble [510, 450, 300, 200, 150, 120, 80] merge [510, 450, 300, 200, 150, 120, 80]
-merge matches built-in True
-\nComplexity / explanation: Bubble O(n²); merge/built-in O(n log n). First three bubble passes shown.\n
+Command: python order_sorting.py
+
+Trace on 6 orders: [15353.81, 18041.35, 12318.94, 12302.65, 18959.42, 767.32]
+
+Insertion sort (descending), first three passes:
+  pass 1: [18041.35, 15353.81, 12318.94, 12302.65, 18959.42, 767.32]
+  pass 2: [18041.35, 15353.81, 12318.94, 12302.65, 18959.42, 767.32]
+  pass 3: [18041.35, 15353.81, 12318.94, 12302.65, 18959.42, 767.32]
+
+Merge sort (descending), first three merges:
+  merge 1: [18041.35] + [12318.94] -> [18041.35, 12318.94]
+  merge 2: [15353.81] + [18041.35, 12318.94] -> [18041.35, 15353.81, 12318.94]
+  merge 3: [18959.42] + [767.32] -> [18959.42, 767.32]
+
+Sorting 10,000 orders by amount (descending)
+  Insertion sort  O(n^2)      :   7.7634 s
+  Merge sort      O(n log n)  :   0.0463 s
+  Built-in sorted (Timsort)   :   0.0026 s
+  All three give the same order: True
+
+Top 5 orders for dispatch:
+  ORD006445  CUST6267  Rs. 24,991.99
+  ORD006563  CUST4414  Rs. 24,991.93
+  ORD009998  CUST4880  Rs. 24,990.94
+  ORD004528  CUST1233  Rs. 24,989.70
+  ORD008765  CUST6119  Rs. 24,989.34

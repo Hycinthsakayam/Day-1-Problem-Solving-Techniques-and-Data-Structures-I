@@ -1,3 +1,9 @@
-Command: python transaction_min_max.py\n\ndivide/conquer (18.75, 9999)
-brute force (18.75, 9999)
-\nComplexity / explanation: Divide-and-conquer O(n), O(log n) recursion; brute force O(n), O(1) extra.\n
+Command: python transaction_min_max.py
+
+Amounts in the day's file: 5,000
+
+Divide and conquer: lowest 53.11, highest 74,972.04, comparisons 7,950, time 1.99 ms
+Brute-force scan  : lowest 53.11, highest 74,972.04, comparisons 9,998, time 0.27 ms
+
+Divide and conquer needs about 3n/2 - 2 = 7,498 comparisons, brute force about 2(n-1) = 9,998.
+Both are O(n). D&C saves comparisons, but recursion overhead makes it slower in Python.
